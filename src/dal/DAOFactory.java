@@ -1,5 +1,7 @@
 package dal;
 
+import dal.jdbc.UserDAO;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
