@@ -13,7 +13,7 @@
 <body>
 <div class="callout large primary">
     <div class="row column text-center">
-        <h1>Gestion des contacts - Login</h1>
+        <h1>Login Mental Game</h1>
     </div>
 </div>
 <div class="row small-5 small-centered">
