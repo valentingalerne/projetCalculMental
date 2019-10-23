@@ -1,3 +1,6 @@
+body {
+	background: #1779ba;
+}
 
 form .form-icons {
 	text-align: center;
@@ -19,4 +22,18 @@ form .form-icons .input-group-field {
 form .form-icons .fa {
 	color: white;
 	width: 1rem;
+}
+
+.connection-box {
+	max-width: 30%;
+	margin-top: calc(50vh - 150px);
+	background: #fafafa;
+	border-radius: 25px;
+	border: 1px solid #efefef;
+	padding: 50px;
+	box-shadow: 0px 0px 5px #c6c6c6;
+}
+
+::placeholder {
+	color: #3d3d3d;
 }

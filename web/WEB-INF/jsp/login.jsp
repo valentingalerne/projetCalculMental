@@ -11,12 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
-<div class="callout large primary">
-    <div class="row column text-center">
-        <h1>Login Mental Game</h1>
-    </div>
-</div>
-<div class="row small-5 small-centered">
+<div class="row small-5 small-centered connection-box">
     <jsp:useBean id="userBean" class="model.UserBean" scope="request"/>
     <c:if test="${ !empty userBean.authResult }">
         <div class="callout alert">
@@ -27,7 +22,7 @@
     <c:if test="${ !userBean.isConnected( pageContext.request ) }">
         <form method="POST" action="login">
             <div class="form-icons">
-                <h4>Boîte de login</h4>
+                <h4>Jeu de Calcul mental</h4>
                 <div class="input-group">
 							<span class="input-group-label">
 								<i class="fa fa-user"></i>
@@ -44,7 +39,7 @@
                            value=""/>
                 </div>
             </div>
-            <button class="button expanded">Valider</button>
+            <button class="button expanded">Connexion</button>
         </form>
     </c:if>
 </div>
