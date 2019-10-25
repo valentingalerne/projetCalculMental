@@ -14,7 +14,7 @@ import java.util.Date;
 public class LoginController extends HttpServlet {
 
     private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/login.jsp";
-    private static final String PAGE_GAME_JSP = "/game.jsp";
+    private static final String PAGE_GAME_JSP = "/game";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
