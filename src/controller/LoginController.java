@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 
     private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/login.jsp";
-    private static final String PAGE_GAME_JSP = "/game";
+    private static final String PAGE_SCORE_JSP = "/scores";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -25,7 +24,7 @@ public class LoginController extends HttpServlet {
             request.setAttribute( "userBean", bean );
         }
         if ( bean.isConnected( request ) ) {
-            response.sendRedirect( request.getContextPath() + PAGE_GAME_JSP );
+            response.sendRedirect( request.getContextPath() + PAGE_SCORE_JSP);
         } else {
             request.getServletContext().getRequestDispatcher( PAGE_LOGIN_JSP ).forward( request, response );
         }

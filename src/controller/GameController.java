@@ -14,6 +14,7 @@ public class GameController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        request.getServletContext().getRequestDispatcher( PAGE_GAME_JSP ).forward( request, response );
+        //request.getServletContext().getRequestDispatcher( PAGE_GAME_JSP ).forward( request, response );
+
     }
 }
