@@ -30,7 +30,7 @@ public class ScoreBean implements Serializable {
         if ( null == games) {
             games = new HashMap<Integer, Game>();
             try {
-                List<Game> temp = gameDao.findByAll();
+                List<Game> temp = gameDao.findByAllTenLast();
                 for (Game game : temp) {
                     games.put(game.getUser().getId(), game);
                 }
