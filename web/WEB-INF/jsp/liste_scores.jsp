@@ -23,16 +23,16 @@
                 <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Id</th>
                         <th>Nom</th>
+                        <th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${usersList}" varStatus="loop">
+                    <c:forEach var="item" items="${gamesList}" varStatus="loop">
                         <tr>
                             <td>${loop.count}</td>
-                            <td>${item.getKey()}</td>
-                            <td>${item.getValue()}</td>
+                            <td>${item.getValue().getUser().getLogin()}</td>
+                            <td>${item.getValue().getScore()}</td>
                         </tr>
                     </c:forEach>
                 </tbody>

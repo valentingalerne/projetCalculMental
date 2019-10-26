@@ -29,7 +29,7 @@ public class ScoreController extends HttpServlet {
 
             case "scores":
             default:
-                bean.loadContactsList( request );
+                bean.loadGameList( request );
                 request.getServletContext().getRequestDispatcher( PAGE_SCORE_JSP ).forward( request, response );
         }
 
