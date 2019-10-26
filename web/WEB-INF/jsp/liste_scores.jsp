@@ -31,8 +31,8 @@
                     <c:forEach var="item" items="${usersList}" varStatus="loop">
                         <tr>
                             <td>${loop.count}</td>
-                            <td>${item.key}</td>
-                            <td>${item.value.login}</td>
+                            <td>${item.getKey()}</td>
+                            <td>${item.getValue()}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
