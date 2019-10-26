@@ -1,4 +1,3 @@
-<%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${scoreBean.users}" varStatus="loop">
+                    <c:forEach var="item" items="${usersList}" varStatus="loop">
                         <tr>
                             <td>${loop.count}</td>
                             <td>${item.key}</td>
