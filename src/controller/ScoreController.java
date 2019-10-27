@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Level;
 
-@WebServlet( urlPatterns = {"/scores"} )
+@WebServlet( urlPatterns = {"/scores", "/scores_final"} )
 public class ScoreController extends HttpServlet {
 
     private static final String PAGE_SCORE_JSP = "/WEB-INF/jsp/liste_scores.jsp";
+    private static final String PAGE_SCORE_FIN_JSP = "/WEB-INF/jsp/liste_fin.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -26,6 +27,16 @@ public class ScoreController extends HttpServlet {
         String realPath = path.substring( path.lastIndexOf( "/" )+ 1 );
 
         switch ( realPath ) {
+            case "scores_final":
+                String score = request.getParameter("score");
+                if (score == null) {
+                    request.setAttribute( "score", "?" );
+                } else {
+                    request.setAttribute( "score", score );
+                }
+                bean.loadScoreBoard( request );
+                request.getServletContext().getRequestDispatcher( PAGE_SCORE_FIN_JSP ).forward( request, response );
+                break;
 
             case "scores":
             default:

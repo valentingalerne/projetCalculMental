@@ -15,7 +15,7 @@ public class GameDAO implements IDAO<Long, Game> {
     private static final String UPDATE_QUERY = "UPDATE game SET id_user = ?, score = ? WHERE id = ?";
     private static final String REMOVE_QUERY = "DELETE FROM game WHERE id = ?";
     private static final String FIND_QUERY = "SELECT * FROM game WHERE id = ?";
-    private static final String FIND_ALL_QUERY = "SELECT * FROM game";
+    private static final String FIND_ALL_QUERY = "SELECT * FROM game ORDER BY score DESC";
     private static final String FIND_ALL_QUERY_LAST = "SELECT * FROM game ORDER BY score ASC LIMIT 10";
 
     @Override

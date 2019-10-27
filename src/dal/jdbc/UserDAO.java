@@ -17,7 +17,7 @@ public class UserDAO implements IUserDAO<Long, User> {
 	private static final String REMOVE_QUERY = "DELETE FROM user WHERE id = ?";
 	private static final String FIND_QUERY = "SELECT * FROM user WHERE id = ?";
 	private static final String FIND_ALL_QUERY = "SELECT * FROM user";
-	private static final String FIND_ALL_GAME = "SELECT * FROM game WHERE id = ?";
+	private static final String FIND_ALL_GAME = "SELECT * FROM game WHERE id_user = ?";
 	private static final String FIND_BEST_GAME = "SELECT game.*, user.id AS user FROM game INNER JOIN user ON game.id_user = user.id WHERE id = ? ORDER BY score LIMIT 1";
 
 	@Override

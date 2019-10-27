@@ -41,6 +41,27 @@ public class ScoreBean implements Serializable {
         }
     }
 
+    public void loadScoreBoard( HttpServletRequest request ) {
+
+        GameDAO gameDao = new GameDAO();
+        HttpSession session = request.getSession();
+        games = ( Map<Integer, Game> ) session.getAttribute(ATT_SESS_GAME_LIST);
+        if ( null == games) {
+            games = new HashMap<Integer, Game>();
+            try {
+                List<Game> temp = gameDao.findByAll();
+                int ctn = 1;
+                for (Game game : temp) {
+                    games.put(ctn, game);
+                    ctn++;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            session.setAttribute(ATT_SESS_GAME_LIST, games);
+        }
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }

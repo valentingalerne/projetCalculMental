@@ -15,10 +15,7 @@
     <form method="POST">
         <div class="form-icons">
             <h4>Partie</h4>
-            <div class="input-group">
-                <input class="input-group-field" type="text" placeholder="${gameBean.currentExpression.strCalcul}" name="form-expression"
-                       value=""/>
-            </div>
+            <p>${game.strCalcul}</p>
             <div class="input-group">
                 <input class="input-group-field" type="text" placeholder="Saisissez un résultat"
                        name="form-result"
