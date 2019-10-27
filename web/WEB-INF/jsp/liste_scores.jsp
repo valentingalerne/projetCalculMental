@@ -37,6 +37,10 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <div class="text-right">
+                <a class="button align-right" href="<c:url value="/game" />"><i
+                        class="fa fa-user-plus"></i>Nouvelle partie</a>
+            </div>
         </div>
         <script src="${pageContext.request.contextPath}/vendor/foundation-6.5.1/js/vendor/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/vendor/foundation-6.5.1/js/vendor/foundation.min.js"></script>

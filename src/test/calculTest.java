@@ -18,7 +18,6 @@ public class calculTest {
 
         double a;
         double b;
-        double c;
         for (Object obj : e.getCalcul()) {
             if (obj instanceof Double) {
                 stack.push((Double) obj);
