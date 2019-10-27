@@ -26,7 +26,7 @@ public enum Operator {
     }
 
     public static Operator randomBinaryOperator()  {
-        return BINARY_OPERATOR_LIST.get(RANDOM.nextInt(BINARY_OPERATOR_LIST_SIZE) - 2);
+        return BINARY_OPERATOR_LIST.get(RANDOM.nextInt(BINARY_OPERATOR_LIST_SIZE - 2));
     }
 
 }
