@@ -33,12 +33,14 @@ public class GameBean implements Serializable {
 
     public boolean checkResult(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        Double result = Double.parseDouble(request.getParameter(FORM_FIELD_RESULT));
+        double result = Double.parseDouble(request.getParameter(FORM_FIELD_RESULT));
         Expression expression = (Expression) session.getAttribute(ATT_SESS_GAME);
 
-        if (result.equals(expression.getResult())) {
+        if (result == expression.getResult()) {
+            System.out.println("true");
             return true;
         } else {
+            System.out.println("false");
             return false;
         }
     }

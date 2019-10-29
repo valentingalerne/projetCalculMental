@@ -14,6 +14,8 @@ import java.io.IOException;
 public class GameController extends HttpServlet {
 
     private static final String PAGE_GAME_JSP = "/WEB-INF/jsp/game.jsp";
+    private static final String NB_ETAPE_CALCUL = "nbEtape";
+    private static final String SCORE_PARTIE = "scorePartie";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -37,13 +39,16 @@ public class GameController extends HttpServlet {
 
         GameBean bean = new GameBean();
         HttpSession session = request.getSession();
-        int score = 0;
+        int etape = (int) session.getAttribute(NB_ETAPE_CALCUL);
+        int score = (int) session.getAttribute(SCORE_PARTIE);
 
         if (bean.checkResult(request)) {
-            score ++;
-            session.setAttribute("score", score);
-        } else {
-            session.setAttribute("score", score);
+            score++;
+            session.setAttribute(SCORE_PARTIE, score);
         }
+        etape++;
+        session.setAttribute(NB_ETAPE_CALCUL, etape);
+        System.out.println("Numéro étape : " + session.getAttribute(NB_ETAPE_CALCUL));
+        System.out.println("score : " + session.getAttribute(SCORE_PARTIE));
     }
 }
