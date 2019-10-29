@@ -19,7 +19,7 @@
 </div>
 <jsp:useBean id="scoreBean" class="model.ScoreBean" scope="request" />
 <div class="row small-8 small-centered">
-    <h3>Tableau des scores : </h3>
+    <h3>Tableau des scores : ${gamesListFinal}</h3>
     <table class="unstriped">
         <thead>
         <tr>
@@ -29,7 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="item" items="${gamesList}" varStatus="loop">
+        <c:forEach var="item" items="${gamesListFinal}" varStatus="loop">
             <tr>
                 <td>${loop.count}</td>
                 <td>${item.getValue().getUser().getLogin()}</td>

@@ -15,6 +15,7 @@ public class ScoreBean implements Serializable {
 
     private static final String FORM_FIELD_NAME = "form-name";
     private static final String ATT_SESS_GAME_LIST = "gamesList";
+    private static final String ATT_SESS_GAME_LIST_FINAL = "gamesListFinal";
 
     private User currentUser;
     private Map<Integer, Game> games;
@@ -45,7 +46,7 @@ public class ScoreBean implements Serializable {
 
         GameDAO gameDao = new GameDAO();
         HttpSession session = request.getSession();
-        games = ( Map<Integer, Game> ) session.getAttribute(ATT_SESS_GAME_LIST);
+        games = ( Map<Integer, Game> ) session.getAttribute(ATT_SESS_GAME_LIST_FINAL);
         if ( null == games) {
             games = new HashMap<Integer, Game>();
             try {
@@ -58,7 +59,7 @@ public class ScoreBean implements Serializable {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            session.setAttribute(ATT_SESS_GAME_LIST, games);
+            session.setAttribute(ATT_SESS_GAME_LIST_FINAL, games);
         }
     }
 
