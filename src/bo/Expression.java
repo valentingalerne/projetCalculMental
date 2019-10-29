@@ -88,7 +88,10 @@ public class Expression {
         List<Object> tempCalcul = getCalcul();
 
         for (Object obj : tempCalcul) {
-            tempStr += obj.toString();
+            if (obj instanceof Double) {
+                obj = Math.round((Double) obj);
+            }
+            tempStr += obj.toString() + " ";
         }
         setStrCalcul(tempStr);
     }
