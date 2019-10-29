@@ -16,7 +16,6 @@ import java.util.Map;
 public class GameBean implements Serializable {
 
     private static final String ATT_SESS_GAME = "game";
-    private static final String ATT_SESS_GAME_RESULT = "game_res";
     private static final String FORM_FIELD_RESULT = "form-result";
 
     private Expression currentExpression;
@@ -30,15 +29,14 @@ public class GameBean implements Serializable {
         Expression expression = new Expression();
 
         session.setAttribute(ATT_SESS_GAME, expression);
-        session.setAttribute(ATT_SESS_GAME_RESULT, String.valueOf(expression.getResult()));
     }
 
     public boolean checkResult(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String result = request.getParameter(FORM_FIELD_RESULT);
-        String expression = (String) session.getAttribute(ATT_SESS_GAME_RESULT);
+        Double result = Double.parseDouble(request.getParameter(FORM_FIELD_RESULT));
+        Expression expression = (Expression) session.getAttribute(ATT_SESS_GAME);
 
-        if (result.equals(expression)) {
+        if (result.equals(expression.getResult())) {
             return true;
         } else {
             return false;
