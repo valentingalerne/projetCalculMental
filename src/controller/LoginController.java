@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/login")
@@ -18,10 +19,11 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-        UserBean bean = ( UserBean ) request.getAttribute( "userBean" );
+        HttpSession session = request.getSession();
+        UserBean bean = ( UserBean ) session.getAttribute( "userBean" );
         if ( bean == null ) {
             bean = new UserBean();
-            request.setAttribute( "userBean", bean );
+            session.setAttribute( "userBean", bean );
         }
         if ( bean.isConnected( request ) ) {
             response.sendRedirect( request.getContextPath() + PAGE_SCORE_JSP);
@@ -33,9 +35,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
         UserBean bean = new UserBean();
         bean.authenticate( request );
-        request.setAttribute( "userBean", bean );
+        session.setAttribute( "userBean", bean );
         doGet( request, response );
     }
 }
