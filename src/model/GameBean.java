@@ -36,13 +36,7 @@ public class GameBean implements Serializable {
         double result = Double.parseDouble(request.getParameter(FORM_FIELD_RESULT));
         Expression expression = (Expression) session.getAttribute(ATT_SESS_GAME);
 
-        if (result == expression.getResult()) {
-            System.out.println("true");
-            return true;
-        } else {
-            System.out.println("false");
-            return false;
-        }
+        return result == expression.getResult();
     }
 
     public Expression getCurrentExpression() {

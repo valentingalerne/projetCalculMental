@@ -20,6 +20,7 @@ public class GameController extends HttpServlet {
     private static final String PAGE_GAME_JSP = "/WEB-INF/jsp/game.jsp";
     private static final String NB_ETAPE_CALCUL = "nbEtape";
     private static final String SCORE_PARTIE = "scorePartie";
+    private static final String SCORES_FINAL = "/scores_final";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
@@ -52,20 +53,18 @@ public class GameController extends HttpServlet {
         }
         etape++;
         session.setAttribute(NB_ETAPE_CALCUL, etape);
-        System.out.println("Numéro étape : " + session.getAttribute(NB_ETAPE_CALCUL));
-        System.out.println("score : " + session.getAttribute(SCORE_PARTIE));
 
         if (etape <= 10) {
             bean.loadGame(request);
             request.getServletContext().getRequestDispatcher(PAGE_GAME_JSP).forward(request, response);
         } else {
-            System.out.println("terminé!");
             UserBean us = ( UserBean ) session.getAttribute( "userBean" );
-            System.out.println("USER : " + us.getUser().toString());
             Game game = new Game(us.getUser(), score);
             GameDAO gameDAO = new GameDAO();
             try {
                 gameDAO.create(game);
+                System.out.println("partie terminée");
+                response.sendRedirect( request.getContextPath() + SCORES_FINAL );
             } catch (SQLException e) {
                 e.printStackTrace();
             }
