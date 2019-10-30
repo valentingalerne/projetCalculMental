@@ -19,7 +19,7 @@
 </div>
 <jsp:useBean id="scoreBean" class="model.ScoreBean" scope="request" />
 <div class="row small-8 small-centered">
-    <h3>Tableau des scores : ${gamesListFinal}</h3>
+    <h3>Tableau des scores : </h3>
     <table class="unstriped">
         <thead>
         <tr>
