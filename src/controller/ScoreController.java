@@ -30,16 +30,13 @@ public class ScoreController extends HttpServlet {
         String path = request.getServletPath();
         String realPath = path.substring( path.lastIndexOf( "/" )+ 1 );
 
-        session.setAttribute(NB_ETAPE_CALCUL, 0);
-        session.setAttribute(SCORE_PARTIE, 0);
-
         switch ( realPath ) {
             case "scores_final":
-                String score = request.getParameter("score");
+                String score = (String) session.getAttribute("score");
                 if (score == null) {
-                    request.setAttribute( "score", "?" );
+                    session.setAttribute( "score", "?" );
                 } else {
-                    request.setAttribute( "score", score );
+                    session.setAttribute( "score", score );
                 }
                 bean.loadScoreBoard( request );
                 request.getServletContext().getRequestDispatcher( PAGE_SCORE_FIN_JSP ).forward( request, response );
@@ -47,6 +44,8 @@ public class ScoreController extends HttpServlet {
 
             case "scores":
             default:
+                session.setAttribute(NB_ETAPE_CALCUL, 0);
+                session.setAttribute(SCORE_PARTIE, 0);
                 bean.loadGameList( request );
                 request.getServletContext().getRequestDispatcher( PAGE_SCORE_JSP ).forward( request, response );
         }
