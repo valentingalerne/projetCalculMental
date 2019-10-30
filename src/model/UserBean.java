@@ -48,6 +48,7 @@ public class UserBean implements Serializable {
         User user = null;
         try {
             user = DAOFactory.getUserDAO().authenticate( login, password );
+            setUser(user);
             if ( null != user ) {
                 request.getSession().setAttribute( ATT_SESSION_CONNECTED_USER, user );
                 authResult = "Bienvenue " + login + "!";

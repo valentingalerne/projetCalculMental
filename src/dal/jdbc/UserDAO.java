@@ -35,6 +35,7 @@ public class UserDAO implements IUserDAO<Long, User> {
 						rs.updateInt( "connections", nbConnections );
 						rs.updateRow();
 						user = new User();
+						user.setId( rs.getInt( "id" ) );
 						user.setLogin( rs.getString( "login" ) );
 						user.setPassword( rs.getString( "password" ) );
 						user.setConnections( nbConnections );

@@ -24,8 +24,8 @@ public class GameDAO implements IDAO<Long, Game> {
         if (connection != null) {
             try (PreparedStatement ps = connection
                     .prepareStatement(INSERT_QUERY, Statement.RETURN_GENERATED_KEYS)) {
-                ps.setInt(2, game.getUser().getId());
-                ps.setInt(3, game.getScore());
+                ps.setInt(1, game.getUser().getId());
+                ps.setInt(2, game.getScore());
                 ps.executeUpdate();
                 try (ResultSet rs = ps.getGeneratedKeys()) {
                     if (rs.next()) {
