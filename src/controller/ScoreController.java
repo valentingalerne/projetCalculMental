@@ -32,12 +32,8 @@ public class ScoreController extends HttpServlet {
 
         switch ( realPath ) {
             case "scores_final":
-                String score = (String) session.getAttribute("score");
-                if (score == null) {
-                    session.setAttribute( "score", "?" );
-                } else {
-                    session.setAttribute( "score", score );
-                }
+                int score = (int) session.getAttribute(SCORE_PARTIE);
+                session.setAttribute( "score", score );
                 bean.loadScoreBoard( request );
                 request.getServletContext().getRequestDispatcher( PAGE_SCORE_FIN_JSP ).forward( request, response );
                 break;
