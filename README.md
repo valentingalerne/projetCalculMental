@@ -1,0 +1,4 @@
+- Clonez et paramétrez le projet
+- Exécutez le script SQL présent sur le dépôt pour récupérer la BDD
+- Lancez le projet 
+- Pour vous connecter sur la page de login vous pouvez utiliser "user1" pour le login et "pwd1" pour le mot de passe
